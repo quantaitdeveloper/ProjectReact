@@ -1,4 +1,22 @@
 import React from "react";
+import { Upload, message } from "antd";
+import { LoadingOutlined, PlusOutlined } from "../../node_modules/@ant-design/icons";
+import "antd/dist/antd.css";
+import { storage } from "../firebase/index";
+import _ from "../../node_modules/lodash";
+
+//function kiểm tra kích thước và loại file upload lên firebase
+function beforeUpload(file) {
+  const isJpgOrPng = file.type === "image/jpeg" || file.type === "image/png";
+  if (!isJpgOrPng) {
+    message.error("You can only upload JPG/PNG file!");
+  }
+  const isLt2M = file.size / 1024 / 1024 < 2;
+  if (!isLt2M) {
+    message.error("Image must smaller than 2MB!");
+  }
+  return isJpgOrPng && isLt2M;
+}
 
 class TaskForm extends React.Component {
   constructor(props) {
@@ -11,8 +29,56 @@ class TaskForm extends React.Component {
       gender: true,
       major: "",
       address: "",
+      loading: false,
+      image: [],
+      urlImage: [],
+      fileList: [
+        {
+          uid: "-1",
+          status: "done",
+          url: "https://placeholder.com/100x100",
+        },
+      ],
     };
   }
+
+  //function lắng nghe sự thay đổi của file ảnh
+  handleChange = (info) => {
+    this.setState({ image: info.target.files[0] });
+    return;
+  };
+  //function upload ảnh lên firebase
+  handleUpload = () => {
+    const uploadTask = storage
+      .ref(`images/${this.state.image.name}`)
+      .put(this.state.image);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+      },
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref("images")
+          .child(this.state.image.name)
+          .getDownloadURL()
+          .then((url) => {
+            this.setState({ urlImage: url });
+          });
+      }
+    );
+  };
+  normFile = (e) => {
+    if (Array.isArray(e)) {
+      return e;
+    }
+    return e && e.fileList;
+  };
 
   componentDidMount() {
     let stdEdit = this.props.stdEdit;
@@ -20,6 +86,7 @@ class TaskForm extends React.Component {
     if (stdEdit) {
       this.setState({
         id: stdEdit.id,
+        urlImage: stdEdit.urlImage,
         stdID: stdEdit.stdID,
         name: stdEdit.name,
         date: stdEdit.date,
@@ -28,6 +95,7 @@ class TaskForm extends React.Component {
         address: stdEdit.address,
       });
       document.getElementById("stdID").value = stdEdit.stdID;
+      this.state.urlImage = stdEdit.urlImage;
       document.getElementById("name").value = stdEdit.name;
       document.getElementById("major").value = stdEdit.major;
       document.getElementById("date").value = stdEdit.date;
@@ -36,19 +104,19 @@ class TaskForm extends React.Component {
   }
 
   UNSAFE_componentWillReceiveProps(prop) {
-    console.log(prop);
     if (prop && prop.stdEdit) {
       this.setState({
         id: prop.stdEdit.id,
+        urlImage: prop.stdEdit.urlImage,
         stdID: prop.stdEdit.stdID,
         name: prop.stdEdit.name,
         date: prop.stdEdit.date,
-        gender:prop.stdEdit.gender,
+        gender: prop.stdEdit.gender,
         major: prop.stdEdit.major,
         address: prop.stdEdit.address,
-        
       });
       document.getElementById("stdID").value = prop.stdEdit.stdID;
+      document.getElementById("urlImage").value = prop.stdEdit.urlImage;
       document.getElementById("name").value = prop.stdEdit.name;
       document.getElementById("major").value = prop.stdEdit.major;
       document.getElementById("date").value = prop.stdEdit.date;
@@ -72,6 +140,7 @@ class TaskForm extends React.Component {
   onSubmit = (event) => {
     event.preventDefault();
     var stdID = document.getElementById("stdID");
+    var urlImage = this.state.urlImage;
     var name = document.getElementById("name");
     var major = document.getElementById("major");
     var date = document.getElementById("date");
@@ -81,6 +150,7 @@ class TaskForm extends React.Component {
       name.value === "" ||
       major.value === "" ||
       date.value === "" ||
+      urlImage.value === "" ||
       adr.value === ""
     ) {
       alert("Không được để trống !");
@@ -98,6 +168,10 @@ class TaskForm extends React.Component {
   };
   render() {
     let { id } = this.state;
+    const { loading, urlImage, fileList } = this.state;
+    const uploadButton = (
+      <div><PlusOutlined /></div>
+    );
     return (
       <div className="card">
         <div className="card-header">
@@ -125,9 +199,33 @@ class TaskForm extends React.Component {
                 name="name"
                 onChange={this.onChange}
               />
+              <label>Ảnh đại diện</label>
+              <div onChange={this.handleChange}>
+                <Upload
+                  id="urlImage"
+                  name="urlImage"
+                  listType="picture-card"
+                  className="avatar-uploader"
+                  showUploadList={false}
+                  action={this.handleUpload}
+                  beforeUpload={beforeUpload}
+                  defaultFileList={fileList}
+                >
+                  {urlImage.length > 0 ? (
+                    <img
+                      src={urlImage}
+                      alt="avatar"
+                      style={{ width: "100%" }}
+                    />
+                  ) : (
+                    uploadButton
+                  )}
+                </Upload>
+              </div>
+              <br />
               <label>Ngày Sinh</label>
               <input
-                type="text"
+                type="date"
                 id="date"
                 className="form-control"
                 name="date"
@@ -165,7 +263,11 @@ class TaskForm extends React.Component {
           <div className="card-footer">
             <div className="form-group"></div>
             <p>
-              <input type="submit" className="btn btn-primary" value={id !==''? 'Sửa':'Thêm'} />
+              <input
+                type="submit"
+                className="btn btn-primary"
+                value={id !== "" ? "Sửa" : "Thêm"}
+              />
               <button
                 className="btn btn-danger"
                 onClick={this.props.onhideDisplay}

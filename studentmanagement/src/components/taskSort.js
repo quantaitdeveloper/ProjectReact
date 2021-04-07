@@ -12,7 +12,7 @@ class Sort extends React.Component {
     
     render() {
         return (
-            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6 ml-15">
+            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6 col-6 ml-15 text-center">
 
                 <div className="dropdown open">
                     <button className="btn btn-secondary dropdown-toggle" type="button" id="triggerId" data-toggle="dropdown"

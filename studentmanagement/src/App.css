@@ -61,10 +61,11 @@
   text-align: center;
 }
 .ml-5{
-  margin-left: 1em !important;
+  margin-left: 5px !important;
 }
 .table td{
   text-align: center;
+  justify-content: center;
 }
 .taskform span:hover{
   color: red;
@@ -79,4 +80,7 @@
 }
 .bl-1{
   border: solid 2px red;
+}
+.pd-5{
+  padding: 5px;
 }

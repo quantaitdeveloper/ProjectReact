@@ -11,26 +11,28 @@ class TaskItem extends React.Component {
         
     }
     render() {
-        var students = this.props.student;
-        var index = this.props.index;
+        let students = this.props.student;
+     
+        let index = this.props.index;
      
         return (
             <tr>
-                <td >{index + 1}</td>
+                <td scope="row">{index + 1}</td>
                 <td>{students.stdID}</td>
                 <td className="bg">{students.name}</td>
-                <td>{students.date}</td>
-                <td className="bg">
+                <td><img src={students.urlImage} width="100" height="100" /></td>
+                <td className="bg">{students.date}</td>
+                <td>
                     <span className={students.gender ? 'badge badge-success' : 'badge badge-danger'} >
                         {students.gender ? 'Nam' : 'Nữ'}
                     </span>
 
                 </td>
-                <td>{students.major}</td>
-                <td className="bg">{students.address}</td>
+                <td className="bg">{students.major}</td>
+                <td>{students.address}</td>
                 <td>
-                    <button type="button" className="btn btn-success" onClick={this.onUpdate}><i class="fas fa-pencil-alt"></i> Sửa</button>
-                    <button type="button" className="btn btn-dark" onClick={this.onDelete}><i class="fas fa-trash-alt"></i> Xóa</button>
+                    <button type="button" className="btn btn-success" onClick={this.onUpdate}><i className="fas fa-pencil-alt"></i> Sửa</button>
+                    <button type="button" className="btn btn-dark" onClick={this.onDelete}><i className="fas fa-trash-alt"></i> Xóa</button>
                 </td>
             </tr>
 

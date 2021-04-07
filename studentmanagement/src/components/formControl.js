@@ -8,7 +8,7 @@ class FormControl extends React.Component {
                
                 <div className="row mt-15 mb-15">
                     {/*search*/}
-                    <Search onSearch={this.props.onSearch}></Search>
+                    <Search onSearch={this.props.onSearch} onDate={this.props.onDate}></Search>
                     {/*sort*/}
                     <Sort onSort={this.props.onSort}></Sort>
                 </div>

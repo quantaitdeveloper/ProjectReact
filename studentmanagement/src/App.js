@@ -1,5 +1,6 @@
 
 import './App.css';
+
 import { Component } from 'react';
 import FormControl from './components/formControl'
 import TaskList from './components/taskList'
@@ -13,49 +14,36 @@ class App extends Component {
 
       ],
       isdisplayForm: false,
-      stdEditting: null,
-      filter: {
-        id: '',
-        gender: -1
+      stdEditting : null ,
+      filter:{
+        id:'',
+        gender :-1
       },
-      keyword: '',
-      sort: {
-        by: 'name',
-        value: 1
+      keyword :'',
+      sort:{
+        by : 'name',
+        value :1 
       },
+      getyearS:0 , 
+      getyearE:0,
+      getmonthS: 0,
+      getmonthE: 0,
       getdateS: 0,
       getdateE: 0,
-      getmonthS: 0,
-      getmonthE: 0
+     
+     
     }
   }
 
-  onGenerateData = () => {
+  onGenerateData=() =>{
     let students = [
-      {
-        id: this.generateID(),
-        stdID: '2017601742',
-        name: 'Tô Anh Quân',
-        date: '21/11/1999',
-        gender: true,
-        major: 'Công Nghệ Thông Tin',
-        address: 'Hà Nội'
-      },
-      {
-        id: this.generateID(),
-        stdID: '2017000000',
-        name: 'Đoàn Tuấn Anh',
-        date: '0/0/1999',
-        gender: true,
-        major: 'Công Nghệ Thông Tin',
-        address: 'Thái Bình'
-      }
-    ]
+     
+    ] 
     /*Tạo 1 Mảng gồm các sinh vien khác nhau */
     /*setSate cho cái state khởi tạo bên trên */
     var a = localStorage.getItem('students');
-    var b = JSON.parse(a);
-
+    var b = JSON.parse(a) ;
+  
     if (b) { /*kiem tra b co khac null hay ko ? neu khac null */
       this.setState({
         students: b /*this.state.students = b , b la 1 mang gom 5 object(trong local)  */
@@ -79,23 +67,23 @@ class App extends Component {
     }
 
   }
-  generateID() {
+  generateID(){
     return Math.random(100);
   }
-  onshowDisplay = () => {
+  onshowDisplay=()=>{
     this.setState({
-      isdisplayForm: true,
-
+      isdisplayForm:true ,
+      
     })
   }
-  onhideDisplay = () => {
+  onhideDisplay=()=>{
     this.setState({
-      isdisplayForm: false,
-      stdEditing: null
+      isdisplayForm:false,
+      stdEditing :null
     })
   }
 
-  onSubmit = (data) => {
+  onSubmit =(data) =>{
     var students = this.state.students;
     if (data.id === "") {
       data.id = this.generateID(); /* co duoc data la 1 cai state (object) , push no vao cai mang object cua state APP.js la xong*/
@@ -105,11 +93,11 @@ class App extends Component {
       var index = this.findIndex(data.id);
       students[index] = data;
     }
-    localStorage.setItem('students', JSON.stringify(students))
-
+    localStorage.setItem('students',JSON.stringify(students))
+    
     this.onhideDisplay();
   }
-  findIndex = (id) => {
+  findIndex=(id)=>{
     var students = this.state.students;
     var result = -1;
     students.forEach((student, index) => {
@@ -119,28 +107,28 @@ class App extends Component {
     })
     return result
   }
-  onDelete = (id) => {
+  onDelete=(id)=>{
     var check = window.confirm("Xác Nhận Xóa ?");
-    if (check === true) {
+    if( check === true){
       var students = this.state.students;
       var index = this.findIndex(id);
-
+  
       if (index !== -1) {
-        students.splice(index, 1);
+        students.splice(index,1) ;
         this.setState({
           students: students
         })
         localStorage.setItem('students', JSON.stringify(students))
       }
     }
-
+   
   }
-  onUpdate = (id) => {
-    let studentEditing = this.state.students;
+  onUpdate =(id)=>{
+    let studentEditing = this.state.students ;
     let index = this.findIndex(id);
     var stdEditing = studentEditing[index];
     this.setState({
-      stdEditing: stdEditing
+      stdEditing :stdEditing
     })
     this.onshowDisplay();
   }
@@ -153,46 +141,60 @@ class App extends Component {
       },
     });
   };
-  onSearch = (keyword) => {
+  onSearch =(keyword) =>{
     this.setState({
-      keyword: keyword
+      keyword :keyword
     })
-    console.log(keyword)
+   
   }
-  onSort = (sortBy, sortValue) => {
+  onSort =(sortBy , sortValue)=>{
     this.setState({
-      sort: {
-        by: sortBy,
-        value: sortValue
+      sort:{
+        by:sortBy,
+        value :sortValue
       }
-    }, () => console.log(this.state.sort))
-  }
-  onDate = (dateS, dateE, monthS, monthE) => {
-    this.setState({
-      getdateS: dateS,
-      getdateE: dateE,
-      getmonthS: monthS,
-      getmonthE: monthE
     })
   }
-  render() {
+  onDate = (yearS , yearE , monthS , monthE , dateS , dateE) => {
+    this.setState({
+      getyearS :yearS ,
+      getyearE :yearE,
+      getmonthS: monthS,
+      getmonthE: monthE,
+      getdateS: dateS,
+      getdateE: dateE,     
+    })
+  }
+
+  render(){
     let students = this.state.students;
-    let stdEditing = this.state.stdEditing;
-    let display = this.state.isdisplayForm ? <TaskForm stdEdit={stdEditing} onSubmit={this.onSubmit} onhideDisplay={this.onhideDisplay} ></TaskForm> : '';
+    let stdEditing =this.state.stdEditing;
+    let display = this.state.isdisplayForm ? <TaskForm stdEdit ={stdEditing} onSubmit={this.onSubmit} onhideDisplay={this.onhideDisplay} ></TaskForm> : '';
     let filter = this.state.filter;
-    let { keyword } = this.state;
+    let {keyword } = this.state;
     let sortBy = this.state.sort.by;
     let sortValue = this.state.sort.value;
-    let { getdateS, getdateE, getmonthS, getmonthE } = this.state;
-    if (getdateS < getdateE && getmonthS < getmonthE) {
+    let { getdateS, getdateE, getmonthS, getmonthE, getyearS , getyearE} = this.state;
+    if(getdateS &&getdateE){
       students = students.filter((student) => {
-        let date = student.date.split('/');
-        let getdate = parseInt(date[0]);
+        let date = student.date.split('-');
+        let getdate = parseInt(date[2]);
+        let getmonth = parseInt(date[1]);
+        let getyear =parseInt(date[0]);
         
-        if(getdate>= getdateS && getdate<=getdateE )
-          return student
+        if(getyear>=getyearS && getyear<= getyearE){
+          if(getmonth>=getmonthS && getmonth<=getmonthE){
+            if(getdate>=getdateS &&getdate <=getdateE){
+            
+              return student
+            }
+          
+            else
+              return -1
+          }
+        }
+          
       })
-      
     }
     if (filter) {
       students = students.filter((student) => {
@@ -204,62 +206,61 @@ class App extends Component {
       });
     }
     //
-    if (keyword) {
+    if(keyword){
       students = students.filter((student) => {
-
+        
         return student.stdID.indexOf(keyword) !== -1;
       });
     }
-
-    if (sortBy === "name") {
-      students.sort((studentA, studentB) => {
-        if (studentA.name > studentB.name) {
+  
+    if(sortBy ==="name"){
+      students.sort((studentA,studentB)=>{
+        if(studentA.name>studentB.name){
           return sortValue;
         }
         else {
-          if (studentA.name < studentB.name)
+          if(studentA.name<studentB.name)
             return sortValue;
           else
             return 0;
         }
-
-
+     
+        
       });
-
-
+    
+    
     }
-   
-    return (
+    return(
       <div>
         <div className="container-fluid">
           <h1>Quản Lý Sinh Viên</h1>
-          <hr />
-
-          <div className="row">
-            <div className={this.state.isdisplayForm ? "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-12 taskform" : "col-lg-0 col-md-0 col-sm-0 col-xs-0 col-0 taskform"} >
-              {display}
-            </div>
-            <div className={this.state.isdisplayForm ? "col-lg-9 col-md-9 col-sm-9 col-xs-9 col-12 formControl" : "col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 formControl"} >
-              <button type="button" className="btn btn-primary" onClick={this.onshowDisplay}><i className="fas fa-plus" /> Thêm Sinh Viên</button>
-              <button type="button" className="btn btn-danger ml-5" onClick={this.onGenerateData}><i className="pe-7s-menu" /> Hiển Thị Tất Cả Sinh Viên</button>
-              <FormControl onSearch={this.onSearch} onSort={this.onSort}></FormControl>
-              <div className="row">
-                <TaskList
-                  students={students}
-                  onDelete={this.onDelete}
-                  onUpdate={this.onUpdate}
-                  onFilter={this.onFilter}
-                  onDate={this.onDate}
-                >
-
-                </TaskList> {/*truyền prop cho thằng con , với giá trị của props là các giá trị của state*/}
+          <hr/>
+        
+            <div className="row">
+              <div className={this.state.isdisplayForm ? "col-lg-3 col-md-3 col-sm-3 col-xs-3 col-12 taskform" : "col-lg-0 col-md-0 col-sm-0 col-xs-0 col-0 taskform"} >
+                {display}
               </div>
+              <div className={this.state.isdisplayForm ? "col-lg-9 col-md-9 col-sm-9 col-xs-9 col-12 formControl" : "col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 formControl"} >
+                <button type="button" className="btn btn-primary" onClick={this.onshowDisplay}><i className="fas fa-plus" /> Thêm Sinh Viên</button>
+                <button type="button" className="btn btn-danger ml-5" onClick={this.onGenerateData}><i className="pe-7s-menu" /> Hiển Thị Tất Cả Sinh Viên</button>
+                <FormControl onSearch={this.onSearch} onSort={this.onSort} onDate={this.onDate}></FormControl>
+                <div className="row">
+                  <TaskList
+                    students={students}
+                    onDelete={this.onDelete}
+                    onUpdate={this.onUpdate}
+                    onFilter={this.onFilter}
+                    onDate={this.onDate}
+                  >
+  
+                  </TaskList> {/*truyền prop cho thằng con , với giá trị của props là các giá trị của state*/}
+                </div>
+              </div>
+  
             </div>
-
           </div>
         </div>
-      </div>
-
+     
     )
   }
 }
