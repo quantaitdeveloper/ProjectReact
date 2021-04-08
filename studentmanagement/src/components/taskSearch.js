@@ -61,7 +61,7 @@ class Search extends React.Component {
                     <div className="col-lg-4 col-md-4 col-sm-4 col-xs-4 col-4">
                         <div className="form-group">
                             <input type="text" className="form-control" name="keyword" value={this.state.keyword}
-                                style={{width:'150px'}} placeholder="Nhập Mã Sinh Viên..."  onChange={this.onChange}/>
+                                style={{width:'120px'}} placeholder="Nhập Mã ..."  onChange={this.onChange}/>
                         </div>
                     </div>
                     <div className="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-3">
