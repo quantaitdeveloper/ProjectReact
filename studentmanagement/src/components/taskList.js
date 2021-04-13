@@ -82,8 +82,8 @@ class TaskList extends React.Component {
           <thead>
             <tr>
               <th>STT</th>
-              <th style={{ width: "130px" }}>Mã Sinh Viên</th>
-              <th>Họ Tên</th>
+              <th >Mã Sinh Viên</th>
+              <th style={{ width: "130px" }}>Họ Tên</th>
               <th>Ảnh đại diện</th>
               <th>Ngày Sinh</th>
               <th>Giới Tính</th>
