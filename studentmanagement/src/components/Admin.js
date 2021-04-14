@@ -36,7 +36,7 @@ class Content extends Component {
     }
     return (
       <div>
-        <Router>
+
           <div className="container-fluid">
             <div className="row">
               <div className="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-12 div-menu">
@@ -107,7 +107,7 @@ class Content extends Component {
               </div>
 
               <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-12 div-content">
-                <Switch>
+              
                   <Route path="/about">
                     <About />
                   </Route>
@@ -117,11 +117,11 @@ class Content extends Component {
                   <Route path="/qlsv">
                     <Home />
                   </Route>
-                </Switch>
+             
               </div>
             </div>
           </div>
-        </Router>
+      
       </div>
     );
   }

@@ -78,7 +78,7 @@ class AppRouter extends Component {
 
     return (
       <Router>
-        <Switch>
+
           <Route
             path="/admin"
             render={() => {
@@ -101,7 +101,7 @@ class AppRouter extends Component {
             }}
           ></Route>
        
-        </Switch>
+    
       </Router>
     );
   }
