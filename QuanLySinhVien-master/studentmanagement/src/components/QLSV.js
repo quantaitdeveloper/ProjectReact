@@ -238,8 +238,8 @@ class QLSV extends Component {
               <Navbar></Navbar>
               
             </div>
-            <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-12">
-              <h1>Quản Lý Sinh Viên</h1>
+            <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-12 " style={{paddingTop:'20px'}}> 
+              <h1><b>Quản Lý Sinh Viên</b></h1>
               <hr />
 
               <div className="row">

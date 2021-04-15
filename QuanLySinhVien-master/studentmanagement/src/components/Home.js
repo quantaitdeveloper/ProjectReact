@@ -16,14 +16,14 @@ export default function Home() {
           
         </div>
         <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-12">
-          <Switch>
-            <Route path="/qlsv">
+          {/* <Switch>
+            <Route path="/home/qlsv">
               <QLSV></QLSV>
             </Route>
-            <Route path="/about">
+            <Route path="/home/about">
               <About></About>
             </Route>
-          </Switch>
+          </Switch> */}
         </div>
       </div>
     </div>

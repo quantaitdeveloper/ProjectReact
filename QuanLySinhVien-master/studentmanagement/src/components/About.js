@@ -1,5 +1,8 @@
 import Navbar from "./Menu";
-import {Link} from "react-router-dom";
+
+import bankingDomain from "./../image/banking-domain-stock-vector.png";
+import tpBank from "./../image/y-nghia-cua-logo-tpbank.jpg";
+
 
 export default function About() {
   return (
@@ -29,7 +32,7 @@ export default function About() {
                     <div className="row">
                       <div className="col-lg-3">
                         <img
-                          src="./image/st,small,507x507-pad,600x600,f8f8f8.u2.jpg"
+                          src={bankingDomain}
                           className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                           alt
                         />
@@ -42,7 +45,7 @@ export default function About() {
                       </div>
                       <div className="col-lg-3">
                         <img
-                          src="./image/banking-domain-stock-vector.png"
+                          src={bankingDomain}
                           className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                           alt
                         />
@@ -55,7 +58,7 @@ export default function About() {
                       </div>
                       <div className="col-lg-3">
                         <img
-                          src="./image/client-website-management.jpg"
+                          src={bankingDomain}
                           className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                           alt
                         />
@@ -68,7 +71,7 @@ export default function About() {
                       </div>
                       <div className="col-lg-3">
                         <img
-                          src="./image/8e9cf6d6ba15878ffdd614033d858e4d.jpg"
+                          src={bankingDomain}
                           className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                           alt
                         />
@@ -135,147 +138,147 @@ export default function About() {
                   <div className="row clients">
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="./image/y-nghia-cua-logo-tpbank.jpg">
+                        
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                        
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="./image/LogoEximbank4.jpg">
+                        
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className
                             alt
                             width="150px"
                             height="50px"
                           />
-                        </a>
+                       
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="./image/lo-go-ngan-hang-bidv.png">
+                       
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                        
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="./image/download.png">
+                      
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                       
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="./image/download (1).png">
+                       
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                        
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="./image/boeing-vector-logo.png">
+                     
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                       
                       </div>
                     </div>
                   </div>
                   <div className="row clients">
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="http://cuonglv.com/wp-content/uploads/2019/04/fpt.png">
-                          {" "}
+                        
+                          
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                      
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="http://cuonglv.com/wp-content/uploads/2019/04/fsoft.png">
+                       
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                       
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="http://cuonglv.com/wp-content/uploads/2019/04/logo_saltlux.png">
+                       
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                      
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="http://cuonglv.com/wp-content/uploads/2019/04/msb.png">
+                        
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                       
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="http://cuonglv.com/wp-content/uploads/2019/04/mb.png">
+                        
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                    
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        <a href="http://cuonglv.com/wp-content/uploads/2019/04/itsol.png">
+                      
                           {" "}
                           <img
-                            src="./image/y-nghia-cua-logo-tpbank.jpg"
+                            src={tpBank}
                             className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
                             alt
                           />
-                        </a>
+                       
                       </div>
                     </div>
                   </div>
