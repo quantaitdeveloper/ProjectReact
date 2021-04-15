@@ -4,28 +4,24 @@ import {
   MailOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { Link ,useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 const { SubMenu } = Menu;
 
 export default function Navbar() {
   let history = useHistory();
-  let redirectToQLSV = () => {
-
-  };
-  let redirectToAbout = () => {
-    
-  };
+  let redirectToQLSV = () => {};
+  let redirectToAbout = () => {};
   return (
     <div>
-      <Menu style={{ width: '200px'}}>
+      <Menu style={{ width: "auto" }}>
         <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
           <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1" onClick={redirectToQLSV}><Link to="/home/qlsv"> Student Management</Link>
-             
+            <Menu.Item key="1" onClick={redirectToQLSV}>
+              <Link to="/home/qlsv"> Student Management</Link>
             </Menu.Item>
             <Menu.Item key="2" onClick={redirectToAbout}>
-            <Link to="/home/about"> About</Link>
+              <Link to="/home/about"> About</Link>
             </Menu.Item>
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="Item 2">
@@ -48,6 +44,11 @@ export default function Navbar() {
           <Menu.Item key="12">Option 12</Menu.Item>
         </SubMenu>
       </Menu>
+      <button className="btn btn-danger">
+        <Link to="/login" className="link">
+          Logout
+        </Link>
+      </button>
     </div>
   );
 }
