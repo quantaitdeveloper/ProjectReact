@@ -11,21 +11,21 @@ const { SubMenu } = Menu;
 export default function Navbar() {
   let history = useHistory();
   let redirectToQLSV = () => {
-   
+
   };
   let redirectToAbout = () => {
     
   };
   return (
     <div>
-      <Menu style={{ width: 200 }}>
+      <Menu style={{ width: '200px'}}>
         <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
           <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1" onClick={redirectToQLSV}><Link to="/qlsv"> Student Management</Link>
+            <Menu.Item key="1" onClick={redirectToQLSV}><Link to="/home/qlsv"> Student Management</Link>
              
             </Menu.Item>
             <Menu.Item key="2" onClick={redirectToAbout}>
-            <Link to="/about"> About</Link>
+            <Link to="/home/about"> About</Link>
             </Menu.Item>
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="Item 2">

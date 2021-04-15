@@ -1,5 +1,5 @@
-import { useHistory } from "react-router-dom";
-
+import { useHistory ,Route } from "react-router-dom";
+import Home from "./Home"
 
 export default function Login() {
     let history = useHistory();
@@ -28,6 +28,7 @@ export default function Login() {
           </p>
         </form>
       </div>
+     
     </div>
   );
 }

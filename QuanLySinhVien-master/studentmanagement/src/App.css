@@ -177,7 +177,7 @@
 
 .about, .resume,.portfolio,.blog{
   padding-top:20px;
-  background-color: #ECF0F0;
+ 
   padding-bottom: 50px;
 }
 .about-content,.resume-content,.portfolio-content,.blog-content,.contact-content{
@@ -807,7 +807,7 @@ h2 {
   border-radius: 0;
   transition: 0.4s;
 }
-.other-pages{
+.other-page-items{
   text-align: center;
 }
 .other-pages button:hover{
@@ -816,4 +816,7 @@ color: white;
 background-color: #8ACB82;
 border-color: #8ACB82;
 
+}
+.link{
+  color: #fff;
 }
