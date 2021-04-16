@@ -3,6 +3,7 @@ import About from "./About";
 import NotFound from "./notFound";
 import QLSV from "./QLSV";
 import Login from "./loginForm";
+import Detail from "./Detail";
 
 const Routes = [
   {
@@ -15,6 +16,7 @@ const Routes = [
     exact: true,
     component: Login,
   },
+ 
   {
     path: "/home",
     exact: true,
@@ -32,10 +34,13 @@ const Routes = [
     exact: false,
     component: About,
   },
+  
   {
-    path: "*",
-    exact: true,
-    component: NotFound,
-  },
+    path:"/detail/:id/:stdID/:name",
+    exact:true,
+    component: Detail
+  }
+  
+ 
 ];
 export default Routes;

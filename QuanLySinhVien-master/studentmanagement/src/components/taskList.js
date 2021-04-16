@@ -43,7 +43,6 @@ class TaskList extends React.Component {
     let getdateS = parseInt(dateS[2]);
     let getdateE = parseInt(dateE[2]);
 
-    
     this.setState(
       {
         getyearS: getyearS,
@@ -52,14 +51,18 @@ class TaskList extends React.Component {
         getmonthE: getmonthE,
         getdateS: getdateS,
         getdateE: getdateE,
-      },()=>  this.props.onDate(
-        this.state.getyearS,
-        this.state.getyearE,
-        this.state.getmonthS,
-        this.state.getmonthE,
-        this.state.getdateS,
-        this.state.getdateE));
-      document.getElementsByClassName("form-control").value = "";
+      },
+      () =>
+        this.props.onDate(
+          this.state.getyearS,
+          this.state.getyearE,
+          this.state.getmonthS,
+          this.state.getmonthE,
+          this.state.getdateS,
+          this.state.getdateE
+        )
+    );
+    document.getElementsByClassName("form-control").value = "";
   };
   render() {
     let students = this.props.students;
@@ -97,11 +100,10 @@ class TaskList extends React.Component {
               <td scope="row"></td>
               <td></td>
               <td></td>
-              <td>
-               
-              </td>
-              <td>
-                <div className="form-group">
+              <td></td>
+              <td></td>
+              <td style={{width:'106px'}}>
+                <div className="form-group"  >
                   <select
                     className="form-control"
                     name="filtergender"

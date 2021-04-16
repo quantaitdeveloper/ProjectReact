@@ -185,7 +185,7 @@ body{
 
 .about, .resume,.portfolio,.blog{
   padding-top:20px;
- 
+
   padding-bottom: 50px;
 }
 .about-content,.resume-content,.portfolio-content,.blog-content,.contact-content{
@@ -569,7 +569,7 @@ body{
   margin: 0 auto 1.6em;
   border-radius: 0 14px 14px 14px;
   color: #345;
-  background: #fff;
+  background-color: rgb(227, 228, 230);
 }
 
 
@@ -827,4 +827,7 @@ border-color: #8ACB82;
 }
 .link{
   color: #fff;
+}
+.pt-10{
+  padding-top: 10px;
 }

@@ -15,6 +15,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        
         <Switch>
           {Routes.map((route) => {
             return (
@@ -22,15 +23,16 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 render={() => {
-                  return localStorage.getItem("access") ? (
-                    <route.component />
-                  ) : (
-                    <Login></Login>
-                  );
+                  return localStorage.getItem("access")? (<route.component/>): <Login/>
                 }}
-              ></Route>
+              >
+              </Route>
             );
           })}
+        
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
       </BrowserRouter>
     </div>

@@ -6,12 +6,18 @@ import {
 } from "@ant-design/icons";
 import { Link, useHistory } from "react-router-dom";
 
+
 const { SubMenu } = Menu;
 
 export default function Navbar() {
   let history = useHistory();
   let redirectToQLSV = () => {};
   let redirectToAbout = () => {};
+  let logout = () => {
+    localStorage.removeItem("access");
+    history.push("/login");
+    
+  };
   return (
     <div>
       <Menu style={{ width: "auto" }}>
@@ -21,7 +27,7 @@ export default function Navbar() {
               <Link to="/home/qlsv"> Student Management</Link>
             </Menu.Item>
             <Menu.Item key="2" onClick={redirectToAbout}>
-              <Link to="/home/about"> About</Link>
+              <Link to="/home/about"> About Me</Link>
             </Menu.Item>
           </Menu.ItemGroup>
           <Menu.ItemGroup key="g2" title="Item 2">
@@ -45,7 +51,7 @@ export default function Navbar() {
         </SubMenu>
       </Menu>
       <button className="btn btn-danger">
-        <Link to="/login" className="link">
+        <Link to="/login" className="link" onClick={logout}>
           Logout
         </Link>
       </button>

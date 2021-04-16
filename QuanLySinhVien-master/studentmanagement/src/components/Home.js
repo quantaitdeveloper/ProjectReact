@@ -4,9 +4,12 @@ import QLSV from "./QLSV";
 import About from "./About";
 import Routes from "./routes";
 import Login from "./loginForm";
+import React, {useEffect} from "react";
+
+
 
 export default function Home() {
-  let history = useHistory();
+  
  
   return (
     <div className="container-fluid">

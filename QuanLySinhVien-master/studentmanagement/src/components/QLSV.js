@@ -4,6 +4,9 @@ import TaskList from "./taskList";
 import TaskForm from "./taskForm";
 import { Link} from "react-router-dom";
 import Navbar from "./Menu";
+
+
+
 class QLSV extends Component {
   constructor(props) {
     super(props);
@@ -56,10 +59,12 @@ class QLSV extends Component {
   componentDidMount() {
     if (localStorage && localStorage.getItem("students")) {
       var students = JSON.parse(localStorage.getItem("students"));
+      console.log(students);
       this.setState({
         students: students,
       });
     }
+
   }
   generateID() {
     return Math.random(100);
