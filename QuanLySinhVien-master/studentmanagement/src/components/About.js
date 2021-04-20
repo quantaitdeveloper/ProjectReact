@@ -1,21 +1,28 @@
 import Navbar from "./Menu";
-
 import bankingDomain from "./../image/banking-domain-stock-vector.png";
 import tpBank from "./../image/y-nghia-cua-logo-tpbank.jpg";
-
+import {Link, Redirect} from 'react-router-dom'
+import { Button } from "antd";
 
 export default function About() {
+  let logout = ()=>{
+    localStorage.removeItem("access");
+  }
   return (
     <div>
       <div className="container-fluid">
         <div className="row">
-          <div className="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-12">
+          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
             <Navbar></Navbar>
-            
-              
-            
           </div>
-          <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-12">
+
+          {/*end menu*/}
+
+        </div>
+        <div className="row">
+
+        
+          <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
             <div className="container-fluid about">
               <div className="row">
                 <div className="col-lg-11 col-md-10 col-9 about-content" id={1}>
@@ -138,147 +145,122 @@ export default function About() {
                   <div className="row clients">
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                        
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        
-                          <img
-                            src={tpBank}
-                            className
-                            alt
-                            width="150px"
-                            height="50px"
-                          />
-                       
+                        <img
+                          src={tpBank}
+                          className
+                          alt
+                          width="150px"
+                          height="50px"
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                       
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                        
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                      
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                       
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                       
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                        
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                     
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                       
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                   </div>
                   <div className="row clients">
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        
-                          
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                      
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                       
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                       
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                       
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                      
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                       
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                        
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                    
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                     <div className=" col-xs-4 col-md-2">
                       <div className="client">
-                      
-                          {" "}
-                          <img
-                            src={tpBank}
-                            className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                            alt
-                          />
-                       
+                        {" "}
+                        <img
+                          src={tpBank}
+                          className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+                          alt
+                        />
                       </div>
                     </div>
                   </div>
@@ -340,8 +322,9 @@ export default function About() {
               </div>
             </div>
           </div>
+          </div>
         </div>
       </div>
-    </div>
+    
   );
 }

@@ -20,8 +20,8 @@ class Sort extends React.Component {
                         Sắp Xếp
                 </button>
                     <div className="dropdown-menu" aria-labelledby="triggerId">
-                        <button className="dropdown-item"  onClick={()=>this.props.onSort('name',1)}>A-Z</button>
-                        <button className="dropdown-item" onClick={()=>this.props.onSort('name',-1)}>Z-A</button>
+                        <button className="dropdown-item"  onClick={()=>this.props.onSort('name',1)}>Thêm đầu tiên</button>
+                        <button className="dropdown-item" onClick={()=>this.props.onSort('name',-1)}>Thêm cuối cùng</button>
                        
 
                         

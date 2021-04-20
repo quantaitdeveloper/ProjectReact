@@ -1,60 +1,43 @@
-import { Menu } from "antd";
+import { Button, Menu } from "antd";
 import {
   AppstoreOutlined,
   MailOutlined,
   SettingOutlined,
 } from "@ant-design/icons";
-import { Link, useHistory } from "react-router-dom";
+import { Link, NavLink, useHistory } from "react-router-dom";
 
 
-const { SubMenu } = Menu;
 
 export default function Navbar() {
   let history = useHistory();
-  let redirectToQLSV = () => {};
-  let redirectToAbout = () => {};
+
   let logout = () => {
     localStorage.removeItem("access");
     history.push("/login");
-    
   };
+  
   return (
     <div>
-      <Menu style={{ width: "auto" }}>
-        <SubMenu key="sub1" icon={<MailOutlined />} title="Navigation One">
-          <Menu.ItemGroup key="g1" title="Item 1">
-            <Menu.Item key="1" onClick={redirectToQLSV}>
-              <Link to="/home/qlsv"> Student Management</Link>
-            </Menu.Item>
-            <Menu.Item key="2" onClick={redirectToAbout}>
-              <Link to="/home/about"> About Me</Link>
-            </Menu.Item>
-          </Menu.ItemGroup>
-          <Menu.ItemGroup key="g2" title="Item 2">
-            <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
-          </Menu.ItemGroup>
-        </SubMenu>
-        <SubMenu key="sub2" icon={<AppstoreOutlined />} title="Navigation Two">
-          <Menu.Item key="5">Option 5</Menu.Item>
-          <Menu.Item key="6">Option 6</Menu.Item>
-          <SubMenu key="sub3" title="Submenu">
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-          </SubMenu>
-        </SubMenu>
-        <SubMenu key="sub4" icon={<SettingOutlined />} title="Navigation Three">
-          <Menu.Item key="9">Option 9</Menu.Item>
-          <Menu.Item key="10">Option 10</Menu.Item>
-          <Menu.Item key="11">Option 11</Menu.Item>
-          <Menu.Item key="12">Option 12</Menu.Item>
-        </SubMenu>
-      </Menu>
-      <button className="btn btn-danger">
-        <Link to="/login" className="link" onClick={logout}>
-          Logout
-        </Link>
-      </button>
+      <div className="header">
+        <Link to="/home"><h2 className="logo">Team 3</h2></Link>
+        <input type="checkbox" id="chk" />
+        <label htmlFor="chk" className="show-menu-btn">
+          <i className="fas fa-ellipsis-h" />
+        </label>
+        <ul className="menu">
+          <NavLink to="/home/qlsv" activeStyle={{color:'#3498db'}} >Student Manage</NavLink>
+          <NavLink to="/home/about" activeStyle={{color:'#3498db'}} > About Me</NavLink>
+          <a href="#">Services</a>
+          <a href="#">Works</a>
+          <Button className="btn btn-success" onClick={logout}>Log Out</Button>
+          <label htmlFor="chk" className="hide-menu-btn">
+            <i className="fas fa-times" />
+          </label>
+        </ul>
+      </div>
+
+      {/*end navbar*/}
+  
     </div>
   );
 }

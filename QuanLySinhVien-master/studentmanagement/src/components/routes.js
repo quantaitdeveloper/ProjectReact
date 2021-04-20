@@ -1,9 +1,10 @@
 import Home from "./Home";
 import About from "./About";
-import NotFound from "./notFound";
-import QLSV from "./QLSV";
+
+
 import Login from "./loginForm";
 import Detail from "./Detail";
+import MainQLSV from "./mainQLSV";
 
 const Routes = [
   {
@@ -21,17 +22,12 @@ const Routes = [
     path: "/home",
     exact: true,
     component: Home,
-    routes: [],
   },
 
-  {
-    path: "/home/qlsv",
-    exact: false,
-    component: QLSV,
-  },
+  
   {
     path: "/home/about",
-    exact: false,
+    exact: true,
     component: About,
   },
   

@@ -2,12 +2,13 @@ import { Component } from "react";
 import FormControl from "./formControl";
 import TaskList from "./taskList";
 import TaskForm from "./taskForm";
-import { Link} from "react-router-dom";
 import Navbar from "./Menu";
+import Home from "./Home";
+import { Link, Redirect } from "react-router-dom";
+import { Button } from "antd";
+import Login from "./loginForm";
 
-
-
-class QLSV extends Component {
+export default class MainQLSV extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,7 +65,6 @@ class QLSV extends Component {
         students: students,
       });
     }
-
   }
   generateID() {
     return Math.random(100);
@@ -161,15 +161,11 @@ class QLSV extends Component {
       getdateE: dateE,
     });
   };
- 
 
-   logout=()=>{
+  logout = () => {
     localStorage.removeItem("access");
-   
-   
-  }
+  };
   render() {
-    
     let students = this.state.students;
     let stdEditing = this.state.stdEditing;
     let display = this.state.isdisplayForm ? (
@@ -239,14 +235,23 @@ class QLSV extends Component {
       <div>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-lg-2 col-md-2 col-sm-2 col-xs-2 col-12">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 ">
               <Navbar></Navbar>
-              
             </div>
-            <div className="col-lg-10 col-md-10 col-sm-10 col-xs-10 col-12 " style={{paddingTop:'20px'}}> 
-              <h1><b>Quản Lý Sinh Viên</b></h1>
-              <hr />
 
+            {/*end menu*/}
+          </div>
+          <div className="row">
+            <div
+              className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 qlsv"
+              style={{ paddingTop: "20px" }}
+            >
+              <h1>
+                <b>Quản Lý Sinh Viên</b>
+              </h1>
+              <hr />
+          </div>
+          </div>
               <div className="row">
                 <div
                   className={
@@ -297,10 +302,8 @@ class QLSV extends Component {
               </div>
             </div>
           </div>
-        </div>
-      </div>
+        
+      
     );
   }
 }
-
-export default QLSV;

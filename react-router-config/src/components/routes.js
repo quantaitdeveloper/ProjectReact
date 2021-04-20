@@ -1,21 +1,24 @@
 import Home from "./home";
 import About from "./about"
-import Login from "./login";
-const Routes =[
+
+import Services from "./services";
+const Routes =[  
     {
-        path :"/home",
-        component :Home,
-        exact :true ,
+        path:"/",
+        component : Home,
+        exact :false
     },
     {
         path :"/about",
+        exact :true ,
         component: About,
     },
     {
-        path:"/",
-        component : Login,
+        path:"/services",
+        component : Services,
         exact :true
     }
+   
 ]
 
  export default Routes; 

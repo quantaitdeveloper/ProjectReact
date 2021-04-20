@@ -2,7 +2,7 @@ import "./App.css";
 
 import { Component } from "react";
 
-import QLSV from "./components/QLSV";
+import MainQLSV from "./components/mainQLSV";
 import Login from "./components/loginForm";
 import NotFound from "./components/notFound";
 import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
@@ -23,13 +23,17 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 render={() => {
-                  return localStorage.getItem("access")? (<route.component/>): <Login/>
+                  return localStorage.getItem("access")? (<route.component/>): 
+                  (<Login/>)
                 }}
               >
               </Route>
             );
           })}
         
+          <Route path="/home/qlsv" >
+            <MainQLSV></MainQLSV>
+          </Route>
           <Route path="*">
             <NotFound></NotFound>
           </Route>
