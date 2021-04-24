@@ -23,17 +23,14 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 render={() => {
-                  return localStorage.getItem("access")? (<route.component/>): 
-                  (<Login/>)
+                  return localStorage.getItem("access")? <route.component menu={<Navbar></Navbar>} ></route.component>: <Login/>
                 }}
               >
               </Route>
             );
           })}
         
-          <Route path="/home/qlsv" >
-            <MainQLSV></MainQLSV>
-          </Route>
+          
           <Route path="*">
             <NotFound></NotFound>
           </Route>
