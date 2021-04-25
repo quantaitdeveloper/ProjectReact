@@ -7,7 +7,7 @@ export default class Home extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      menus: ["home", "about", "services"],
+      menus: ["home", "product", "services","contact"],
     };
   }
 
@@ -16,7 +16,7 @@ export default class Home extends Component {
   };
   render() {
     return (
-      <div className="container">
+      <div className="container-fluid">
         <div className="row">
           <div className="col-lg-12">
             <div className="header">
@@ -26,9 +26,7 @@ export default class Home extends Component {
                 <i className="fas fa-ellipsis-h" />
               </label>
               <ul className="menu">
-                {/* <Link to="/home" onClick={this.onActive} id="actived">Home</Link>
-                <Link to="/about">About</Link>
-                <Link to="/services">Services</Link> */}
+               
                 {this.state.menus.map((menuitem) => {
                   return (
                     <NavLink

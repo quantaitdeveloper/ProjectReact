@@ -1,6 +1,5 @@
 import Home from "./home";
-import About from "./about"
-
+import Product from "./products"
 import Services from "./services";
 const Routes =[  
     {
@@ -9,9 +8,9 @@ const Routes =[
         exact :false
     },
     {
-        path :"/about",
+        path :"/product",
         exact :true ,
-        component: About,
+        component: Product,
     },
     {
         path:"/services",
