@@ -1,0 +1,51 @@
+<html>
+
+<head>
+  <title>Giải Thuật K-Means</title>
+</head>
+
+<body>
+  <script src="https://www.lactame.com/lib/ml/3.2.0/ml.min.js"></script>
+  <script>
+    //Sử dụng thuật toán
+    X = [
+      [14.23, 1.71, 127, 2.8, 5.64, 1.04], [13.2, 1.78, 100, 2.65, 4.38, 1.05], [13.16, 2.36, 101, 2.8, 5.68, 1.03], [14.37, 1.95, 113, 3.85, 7.8, 0.86], [13.24, 2.59, 118, 2.8, 4.32, 1.04],
+      [12.37, 0.94, 88, 1.98, 1.95, 1.05], [12.33, 1.1, 101, 2.05, 3.27, 1.25], [12.64, 1.36, 100, 2.02, 5.75, 0.98], [13.67, 1.25, 93, 2.1, 3.8, 1.23], [12.37, 1.13, 87, 3.5, 4.45, 1.22],
+      [12.86, 1.35, 122, 1.51, 4.1, 0.76], [12.88, 2.99, 104, 1.3, 5.4, 0.74], [12.81, 2.31, 98, 1.15, 5.7, 0.66], [12.7, 3.55, 106, 1.7, 5, 0.78], [12.51, 1.24, 85, 2, 5.45, 0.75]
+    ];
+
+    min_loss = Infinity;
+    for (l = 0; l < 10; l++) {
+      //Chọn các trung tâm cụm
+      mu0_position = Math.floor(Math.random() * 15);
+      while (true) {
+        mu1_position = Math.floor(Math.random() * 15);
+        mu2_position = Math.floor(Math.random() * 15);
+        if (mu0_position != mu1_position && mu1_position != mu2_position && mu2_position != mu0_position)
+          break;
+      }
+      mu = [X[mu0_position], X[mu1_position], X[mu2_position]];
+
+      km = ML.KMeans(X, 3, { initialization: mu });
+
+      J = 0;
+      for (k = 0; k < 3; k++)
+        J += km.centroids[k].error;
+      if (J < min_loss) {
+        min_loss = J;
+        c_min_loss = km.clusters;
+      }
+    }
+
+    //Kết quả
+    document.write("Các mẫu rượu trong cùng nhóm là:<br>")
+    for (k = 0; k < 3; k++) {
+      for (i = 0; i < 15; i++)
+        if (c_min_loss[i] == k)
+          document.write((i + 1) + ' ');
+      document.write('<br>');
+    }
+  </script>
+</body>
+
+</html>
