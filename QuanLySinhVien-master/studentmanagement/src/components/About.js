@@ -4,16 +4,14 @@ import tpBank from "./../image/y-nghia-cua-logo-tpbank.jpg";
 import {Link, Redirect} from 'react-router-dom'
 import { Button } from "antd";
 
-export default function About() {
-  let logout = ()=>{
-    localStorage.removeItem("access");
-  }
+export default function About(props) {
+  
   return (
     <div>
       <div className="container-fluid">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12">
-            <Navbar></Navbar>
+            {props.menu}
           </div>
 
           {/*end menu*/}
@@ -41,7 +39,7 @@ export default function About() {
                         <img
                           src={bankingDomain}
                           className="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
-                          alt
+                          alt=""
                         />
                         <p className="title-1">FULL STACK</p>
                         <p className="content-1">

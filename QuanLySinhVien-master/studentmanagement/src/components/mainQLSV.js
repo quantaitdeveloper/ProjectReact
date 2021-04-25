@@ -60,7 +60,7 @@ export default class MainQLSV extends Component {
   componentDidMount() {
     if (localStorage && localStorage.getItem("students")) {
       var students = JSON.parse(localStorage.getItem("students"));
-      console.log(students);
+      
       this.setState({
         students: students,
       });
@@ -231,12 +231,17 @@ export default class MainQLSV extends Component {
         }
       });
     }
+  
+  
+   
     return (
+     
+      
       <div>
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 ">
-              <Navbar></Navbar>
+              {this.props.menu}
             </div>
 
             {/*end menu*/}

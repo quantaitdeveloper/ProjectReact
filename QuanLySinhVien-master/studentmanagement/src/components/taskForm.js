@@ -126,8 +126,8 @@ class TaskForm extends React.Component {
   onChange = (event) => {
     /** ham onChange luon tra ve 1 target  */
 
-    var name = event.target.name;
-    var value = event.target.value;
+    let name = event.target.name;
+    let value = event.target.value;
 
     if (name === "gender") {
       /* Nếu name của input là "true hoặc false" kiểu chuỗi thì gán lại lại bằng kiểu boolen*/

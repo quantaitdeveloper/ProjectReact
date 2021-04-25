@@ -30,7 +30,12 @@ const Routes = [
     exact: true,
     component: About,
   },
-  
+  {
+    path: "/home/qlsv",
+    exact: true,
+    component: MainQLSV,
+
+  },
   {
     path:"/detail/:id/:stdID/:name",
     exact:true,

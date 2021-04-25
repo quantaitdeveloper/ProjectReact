@@ -1,13 +1,12 @@
-import { useHistory, Route, Redirect } from "react-router-dom";
-import Home from "./Home";
-import Routes from "./routes";
-import React, {useEffect} from "react";
+import { useHistory, Redirect } from "react-router-dom";
+
+import React from "react";
 
 
 export default function Login() {
   let history = useHistory();
   
-  var login = () => {
+  let login = () => {
     localStorage.setItem("access", true);
     history.push("/home");
   };
