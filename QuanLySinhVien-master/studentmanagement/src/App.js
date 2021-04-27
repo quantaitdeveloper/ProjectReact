@@ -23,7 +23,8 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 render={() => {
-                  return localStorage.getItem("access")? <route.component menu={<Navbar></Navbar>} ></route.component>: <Login/>
+                  return localStorage.getItem("access")? <route.component menu={<Navbar></Navbar>} render={(value)=> <div>{value}</div>                 
+                  }></route.component>:<Login/>
                 }}
               >
               </Route>

@@ -241,7 +241,7 @@ export default class MainQLSV extends Component {
         <div className="container-fluid">
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 ">
-              {this.props.menu}
+              
             </div>
 
             {/*end menu*/}
