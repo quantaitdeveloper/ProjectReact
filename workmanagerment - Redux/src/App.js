@@ -159,7 +159,7 @@ class App extends React.Component {
     this.onshowDisplay();
   }
   render() {
-    var tasks = this.state.tasks; /* khởi tạo 1 biến tasks lưu giá trị của state 
+    /* khởi tạo 1 biến tasks lưu giá trị của state 
     
     mục đích để truyền cho mấy thằng con taskList*/
     var taskEditing = this.state.taskEditing;
@@ -179,7 +179,7 @@ class App extends React.Component {
               <FormControl></FormControl>
               <div class="row">
                 <TaskList
-                  tasks={tasks}
+                
                   onUpdateStatus={this.onUpdateStatus}
                   onDelete={this.onDelete}
                   onUpdate ={this.onUpdate}

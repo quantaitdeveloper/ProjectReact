@@ -3,10 +3,17 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {createStore } from "redux";
+import {Provider} from "react-redux";
+import myReducer from './reducers/index';
+
+const store  = createStore(myReducer);
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}> {/* cung cap store cho cac component , o day la tk app to */}
+         <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

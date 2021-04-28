@@ -1,7 +1,11 @@
 import React from 'react';
 import TaskItem from './taskItem';
+
+import {connect} from "react-redux";
+
 class TaskList extends React.Component {
     render() {
+        console.log(this.props.tasks);
         /* nhận prop từ tk App */
         var tasks = this.props.tasks; /* tasks nay la cac gia tri cua state bao gom 1 mang object */
         var elmTasks = tasks.map((task, index) => {
@@ -60,4 +64,11 @@ class TaskList extends React.Component {
     }
 }
 
-export default TaskList;
+const mapStatetoProps = (state) =>{
+    return {
+        tasks : state.tasks,
+    }
+}
+export default connect(mapStatetoProps,null)(TaskList); 
+
+// lay cai state trong store = > props cua tk tasklist  
