@@ -7,6 +7,9 @@ import Products from './components/Products';
 import Message from './components/Message';
 import Cart from './components/Cart';
 import Footer from './components/Footer';
+import ProductContainer from './containers/ProductContainer';
+import CartContainer from './containers/CartContainer';
+import MessContainer from './containers/MessContainer';
 
 class App extends Component {
   render() {
@@ -17,11 +20,11 @@ class App extends Component {
         <main id="mainContainer">
             <div className="container">
                 {/* <!-- Products --> */}
-                <Products></Products>
+                <ProductContainer></ProductContainer>
                 {/* <!-- Message --> */}
-               <Message></Message>
+               <MessContainer></MessContainer>
                 {/* <!-- Cart --> */}
-                <Cart></Cart>
+                <CartContainer/>
             </div>
         </main>
         {/* <!-- Footer --> */}

@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
-
+import * as Mess from "../constants/Message";
 class Product extends Component {
+    onAddToCart=(product)=>{
+        this.props.onAddToCart(product);
+        this.props.onAddToCartSuccess(Mess.MESS_SUCCESS);
+    }
     
     render() {
        
@@ -33,7 +37,7 @@ class Product extends Component {
                         <div className="card-footer">
                             <span className="left">$ {product.price}</span>
                             <span className="right">
-                                <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart">
+                                <a className="btn-floating blue-gradient" data-toggle="tooltip" data-placement="top" title="" data-original-title="Add to Cart" onClick={()=>this.onAddToCart(product)}>
                                     <i className="fa fa-shopping-cart"></i>
                                 </a>
                             </span>
@@ -48,12 +52,12 @@ class Product extends Component {
         let result = [] ; 
         for(let i=0 ; i<rating ; i++){
          
-            result.push( <li><i className="fa fa-star"></i></li>)
+            result.push( <li  key={i} ><i className="fa fa-star"></i></li>)
             
         }
-        for(let i=0 ; i<5-rating ; i++){
+        for(let j=0 ; j<5-rating ; j++){
          
-            result.push( <li><i className="fa fa-star-o"></i></li>)
+            result.push( <li key={j+111}><i  className="fa fa-star-o"></i></li>)
             
         }
         return result;

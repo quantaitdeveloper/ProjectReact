@@ -1,7 +1,23 @@
 import React, { Component } from 'react';
 
 class CartResult extends Component {
+    Price=(cart)=>{
+        let total = 0 ;
+      
+          for(let i=0 ; i<cart.length ; i++){
+              total+=(cart[i].product.price*cart[i].quantity)
+          }
+        
+        return total;
+    }
+    onCompletePurchase=()=>{
+        localStorage.removeItem("cart");
+        alert("Đặt hàng thành công !");
+        window.location.reload();
+    }
+   
     render() {
+        let {cart} =  this.props;
         return (
          
                 <tr>
@@ -13,11 +29,11 @@ class CartResult extends Component {
                     </td>
                     <td>
                         <h4>
-                            <strong>15$</strong>
+                            <strong>{this.Price(cart)}$</strong>
                         </h4>
                     </td>
                     <td colSpan="3">
-                        <button type="button" className="btn btn-primary waves-effect waves-light">Complete purchase
+                        <button type="button" onClick={this.onCompletePurchase} className="btn btn-primary waves-effect waves-light">Complete purchase
                                             <i className="fa fa-angle-right right"></i>
                         </button>
                     </td>
