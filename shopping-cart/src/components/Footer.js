@@ -13,42 +13,42 @@ class Footer extends Component {
                             <ul className="text-center">
                                 <li>
                                     <a className="btn-floating  btn-fb waves-effect waves-light">
-                                        <i className="fa fa-facebook"></i>
+                                        <i className="fab fa-facebook"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-ins waves-effect waves-light">
-                                        <i className="fa fa-instagram"></i>
+                                        <i className="fab fa-instagram"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-tw waves-effect waves-light">
-                                        <i className="fa fa-twitter"></i>
+                                        <i className="fab fa-twitter"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-yt waves-effect waves-light">
-                                        <i className="fa fa-youtube"></i>
+                                        <i className="fab fa-youtube"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-li waves-effect waves-light">
-                                        <i className="fa fa-linkedin"></i>
+                                        <i className="fab fa-linkedin"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-dribbble waves-effect waves-light">
-                                        <i className="fa fa-dribbble left"></i>
+                                        <i className="fab fa-dribbble left"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-pin waves-effect waves-light">
-                                        <i className="fa fa-pinterest"></i>
+                                        <i className="fab fa-pinterest"></i>
                                     </a>
                                 </li>
                                 <li>
                                     <a className="btn-floating  btn-gplus waves-effect waves-light">
-                                        <i className="fa fa-google-plus"></i>
+                                        <i className="fab fa-google-plus"></i>
                                     </a>
                                 </li>
                             </ul>
@@ -162,7 +162,7 @@ class Footer extends Component {
             </div>
             <div className="footer-copyright">
                 <div className="container-fluid">
-                    © 2016 Copyright:
+                    © 2021 Tô Anh Quân
                     <a href="http://www.MDBootstrap.com"> MDBootstrap.com </a>
                 </div>
             </div>

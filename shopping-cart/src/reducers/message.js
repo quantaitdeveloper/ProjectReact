@@ -12,6 +12,10 @@ const message = (state = initialState , action)=>{
             state = Mess.MESS_DELETE_SUCCESS;
             return state;
         }
+        case(types.UPDATE_PRODUCT):{
+            state = Mess.MESS_UPDATE_SUCCESS;
+            return state;
+        }
         default : 
             return state;
     }

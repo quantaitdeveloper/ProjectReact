@@ -11,11 +11,16 @@ class CartContainer extends Component {
         let result = "";
         if (cart.length > 0) {
             result = cart.map((item, index) => {
-                return <CartItem index={index} cart={item} key={index} onDelete={this.props.onDelete} onDeleteSuccess={this.props.onDeleteSuccess} ></CartItem>
+                return <CartItem index={index} cart={item} key={index} 
+                onDelete={this.props.onDelete}
+                 onDeleteSuccess={this.props.onDeleteSuccess} 
+                 onUpdateProduct={this.props.onUpdateProduct}
+                 onUpdateProductSuccess ={this.props.onUpdateProductSuccess}
+                 ></CartItem>
             })
         }
-        else{
-            result=MESSAGE.MESS_CART_EMPTY;
+        else {
+            result = MESSAGE.MESS_CART_EMPTY;
         }
         return result;
     }
@@ -23,11 +28,11 @@ class CartContainer extends Component {
     showCartToTal(cart) {
         let result = null;
         if (cart.length > 0) {
-            
-                result = <CartResult cart={cart} ></CartResult>
-           
+
+            result = <CartResult cart={cart} ></CartResult>
+
         }
-      
+
         return result;
     }
     render() {
@@ -47,14 +52,21 @@ const mapStateToProps = state => {
 
 }
 
-const mapDispatchToProps = (dispatch , props) =>{
+const mapDispatchToProps = (dispatch, props) => {
     return {
-        onDelete : (product)=>{
+        onDelete: (product) => {
             dispatch(actions.deleteProduct(product));
         },
-        onDeleteSuccess : (mess)=>{
+        onDeleteSuccess: (mess) => {
             dispatch(actions.deleteProduct(mess));
+        },
+        onUpdateProduct: (product, quantity) => {
+            dispatch(actions.updateProduct(product, quantity));
+        },
+        onUpdateProductSuccess: (mess) => {
+            dispatch(actions.updateProduct(mess));
         }
+
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(CartContainer);

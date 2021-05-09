@@ -12,12 +12,27 @@ export const addToCart = (product , quantity) =>{
 
 export const addToCartSuccess = (message)=>{
     return {
-        type:types.ADD_TO_CART_SUCCESS
+        type:types.ADD_TO_CART_SUCCESS,
+        message
     }
 }
 export const deleteProduct = (product) =>{
     return {
         type:types.DELETE_PRODUCT,
         product
+    }
+}
+export const updateProduct = (product , quantity) =>{
+    return {
+        type : types.UPDATE_PRODUCT,
+        product ,
+        quantity
+    }
+}
+export const updateProductSuccess =(mess)=>{
+    return {
+        type : types.UPDATE_PRODUCT,
+    
+      mess
     }
 }

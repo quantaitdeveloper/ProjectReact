@@ -9,15 +9,17 @@ class Cart extends Component {
             <div>
                 <section className="section">
                     <div className="table-responsive">
-                        <table className="table product-table">
-                            <thead>
-                                <tr>
-                                    <th>STT</th>
-                                    <th>Sản Phẩm</th>
-                                    <th>Giá</th>
-                                    <th>Số Lượng</th>
-                                    <th>Tổng Cộng</th>
-                                    <th></th>
+                        <table className="table product-table" >
+                            <thead >
+                                <tr >
+                                    <th style={{textAlign:'center'}}>STT</th>
+                                    <th style={{textAlign:'center'}}>Ảnh Sản Phẩm</th>
+                                    <th style={{textAlign:'center'}}>Tên Sản Phẩm</th>
+                                    
+                                    <th style={{textAlign:'center'}}>Số Lượng</th>
+                                    
+                                    <th style={{textAlign:'center'}}>Tổng Cộng</th>
+                                   
                                 </tr>
                             </thead>
                             <tbody>

@@ -1,13 +1,31 @@
 import React, { Component } from 'react';
-import { MESS_DELETE_SUCCESS } from '../constants/Message';
+import { MESS_DELETE_SUCCESS, MESS_UPDATE_SUCCESS } from '../constants/Message';
 
 class CartItem extends Component {
+    
+    
+    
     onDelete=(product)=>{
+        let name = product.name;
+        console.log(typeof(name))
+        let check = window.confirm("Xác Nhận Xóa Sản Phẩm "+name+" ?");
+        if(check ===true ){
         this.props.onDelete(product);
         this.props.onDeleteSuccess(MESS_DELETE_SUCCESS);
+        }
+        
+    }
+    onUpdate =(product , quantity)=>{
+        this.props.onUpdateProduct(product , quantity);
+        if(quantity>1){        
+            this.props.onUpdateProductSuccess(MESS_UPDATE_SUCCESS);
+        }
+        
     }
     render() {
         let {cart,index} = this.props;
+        let quantity = cart.quantity;
+        
         return (
             
                 <tr>
@@ -21,17 +39,17 @@ class CartItem extends Component {
                             <strong>{cart.product.name}</strong>
                         </h5>
                     </td>
-                    <td>{cart.product.price}$</td>
+                   
                     <td className="center-on-small-only">
-                        <span className="qty">{cart.quantity}</span>
+                        <span className="qty">{quantity}</span>
                         <div className="btn-group radio-group" data-toggle="buttons">
-                            <label className="btn btn-sm btn-primary
+                            <label onClick={ ()=> this.onUpdate(cart.product , cart.quantity -1 )} className="btn btn-sm btn-primary
                                                 btn-rounded waves-effect waves-light">
-                                <a>—</a>
+                                <i class="fas fa-minus"></i>
                             </label>
-                            <label className="btn btn-sm btn-primary
+                            <label onClick={ ()=> this.onUpdate(cart.product , cart.quantity +1 )}  className="btn btn-sm btn-primary
                                                 btn-rounded waves-effect waves-light">
-                                <a>+</a>
+                                <i class="fas fa-plus"></i>
                             </label>
                         </div>
                     </td>
@@ -39,7 +57,7 @@ class CartItem extends Component {
                     <td>
                         <button type="button" onClick={()=>this.onDelete(cart.product)} className="btn btn-sm btn-primary waves-effect waves-light" data-toggle="tooltip" data-placement="top"
                             title="" data-original-title="Remove item">
-                            X
+                            <i class="fas fa-trash-alt"></i>
                                         </button>
                     </td>
                 </tr>
