@@ -1,0 +1,187 @@
+<html>
+
+<head>
+  <title>Giải Thuật K-Means</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .container {
+      max-width: 1024px;
+    }
+
+    .col-lg-12 {
+      text-align: center;
+      padding: 10px;
+    }
+
+    img {
+      width: 500px;
+      height: 300px;
+    }
+
+    .col-lg-6 {
+      border: solid 2px greenyellow;
+      padding: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://www.lactame.com/lib/ml/3.2.0/ml.min.js"></script>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="title">GIẢI THUẬT K-MEANS</h1>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6" class="vd1">
+        <img src="ruou.jpg" />
+        <br>
+        <br>
+        <script>
+          //Sử dụng thuật toán
+          X = new ML.Matrix([
+            [14.23, 1.71, 127, 2.8, 5.64, 1.04], [13.2, 1.78, 100, 2.65, 4.38, 1.05], [13.16, 2.36, 101, 2.8, 5.68, 1.03], [14.37, 1.95, 113, 3.85, 7.8, 0.86], [13.24, 2.59, 118, 2.8, 4.32, 1.04],
+            [12.37, 0.94, 88, 1.98, 1.95, 1.05], [12.33, 1.1, 101, 2.05, 3.27, 1.25], [12.64, 1.36, 100, 2.02, 5.75, 0.98], [13.67, 1.25, 93, 2.1, 3.8, 1.23], [12.37, 1.13, 87, 3.5, 4.45, 1.22],
+            [12.86, 1.35, 122, 1.51, 4.1, 0.76], [12.88, 2.99, 104, 1.3, 5.4, 0.74], [12.81, 2.31, 98, 1.15, 5.7, 0.66], [12.7, 3.55, 106, 1.7, 5, 0.78], [12.51, 1.24, 85, 2, 5.45, 0.75]
+          ]);
+
+          //Bước 5
+          min_loss = Infinity;
+          for (l = 0; l < 10; l++) {
+            //Bước 1
+            mu0_position = Math.floor(Math.random() * 15);
+            while (true) {
+              mu1_position = Math.floor(Math.random() * 15);
+              mu2_position = Math.floor(Math.random() * 15);
+              if (mu0_position != mu1_position && mu1_position != mu2_position && mu2_position != mu0_position)
+                break;
+            }
+            mu = [X.getRowVector(mu0_position), X.getRowVector(mu1_position), X.getRowVector(mu2_position)];
+
+            //Bước 4
+            while (true) {
+              //Bước 2
+              c = [];
+              for (i = 0; i < 15; i++) {
+                data_point = X.getRowVector(i);
+                ci = 0;
+                min_distance = ML.Matrix.sub(data_point, mu[0]).norm();
+                for (k = 1; k < 3; k++)
+                  if (ML.Matrix.sub(data_point, mu[k]).norm() < min_distance) {
+                    ci = k;
+                    min_distance = ML.Matrix.sub(data_point, mu[k]).norm();
+                  }
+                c.push(ci);
+              }
+
+              //Bước 3
+              new_mu = [new ML.Matrix([[0, 0, 0, 0, 0, 0]]), new ML.Matrix([[0, 0, 0, 0, 0, 0]]), new ML.Matrix([[0, 0, 0, 0, 0, 0]])];
+              cluster_size = [0, 0, 0];
+              for (i = 0; i < 15; i++) {
+                cluster_size[c[i]]++;
+                new_mu[c[i]].add(X.getRowVector(i));
+              }
+              for (k = 0; k < 3; k++)
+                new_mu[k].div(cluster_size[k]);
+
+              //Kiểm tra điều kiện dừng
+              isEqual = true;
+              for (k = 0; k < 3; k++)
+                if (JSON.stringify(mu[k].getRow(0)) != JSON.stringify(new_mu[k].getRow(0)))
+                  isEqual = false;
+              if (isEqual)
+                break;
+              else mu = new_mu;
+            }
+
+            J = 0;
+            for (i = 0; i < 15; i++)
+              J += Math.pow(ML.Matrix.sub(X.getRowVector(i), mu[c[i]]).norm(), 2);
+            J /= 15;
+            if (J < min_loss) {
+              min_loss = J;
+              c_min_loss = c.slice(0);
+            }
+          }
+
+          //Kết quả
+          document.write("Các mẫu rượu trong cùng nhóm là:<br>")
+          for (k = 0; k < 3; k++) {
+            for (i = 0; i < 15; i++)
+              if (c_min_loss[i] == k)
+                document.write((i + 1) + ' ');
+            document.write('<br>');
+          }
+        </script>
+      </div>
+      <div class="col-lg-6" class="vd2">
+        <img src="1_6y1TpUg2QUxQ6Kv5DWdJng.png" />
+        <br>
+        <br>
+        <script>
+          //Sử dụng thuật toán
+          X = [
+            [5.1, 3.5, 1.4, 0.2], [4.9, 3.0, 1.4, 0.2], [4.7, 3.2, 1.3, 0.2], [4.6, 3.1, 1.5, 0.2], [5.0, 3.6, 1.4, 0.2],
+            [5.4, 3.9, 1.7, 0.4], [4.6, 3.4, 1.4, 0.3], [5.0, 3.4, 1.5, 0.2], [4.4, 2.9, 1.4, 0.2], [4.9, 3.1, 1.5, 0.1]
+
+          ];
+
+          min_loss = Infinity;
+          for (l = 0; l < 10; l++) {
+            //Chọn các trung tâm cụm
+            mu0_position = Math.floor(Math.random() * 10);
+            while (true) {
+              mu1_position = Math.floor(Math.random() * 10);
+              // mu2_position = Math.floor(Math.random() * 10);
+              if (mu0_position != mu1_position)
+                break;
+            }
+            mu = [X[mu0_position], X[mu1_position]];
+
+            km = ML.KMeans(X, 2, { initialization: mu });
+
+            J = 0;
+            for (k = 0; k < 2; k++)
+              J += km.centroids[k].error;
+            if (J < min_loss) {
+              min_loss = J;
+              c_min_loss = km.clusters;
+            }
+          }
+
+          //Kết quả
+          document.write("Các loại hoa cùng nhóm là:<br>")
+          for (k = 0; k < 2; k++) {
+            for (i = 0; i < 10; i++)
+              if (c_min_loss[i] == k)
+                document.write((i + 1) + ' ');
+            document.write('<br>');
+          }
+        </script>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+
+</html>

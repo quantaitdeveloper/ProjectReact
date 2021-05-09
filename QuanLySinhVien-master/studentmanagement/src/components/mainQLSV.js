@@ -263,7 +263,17 @@ export default class MainQLSV extends Component {
       
       <div>
         <div className="container-fluid">
+<<<<<<< HEAD
          
+=======
+          <div className="row">
+            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 ">
+              
+            </div>
+
+            {/*end menu*/}
+          </div>
+>>>>>>> 0cc21d503e40d43ad3c38ecc96d38258376851e3
           <div className="row">
             <div
               className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 qlsv"

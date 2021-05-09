@@ -33,7 +33,7 @@ const Routes = [
   {
     path: "/home/qlsv",
     exact: true,
-    component: MainQLSV,
+    component: MainQLSV ,
 
   },
   {
