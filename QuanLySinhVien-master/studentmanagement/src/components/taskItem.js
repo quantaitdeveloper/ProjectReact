@@ -37,7 +37,7 @@ class TaskItem extends React.Component {
                 
                     <button type="button" className="btn btn-warning ml-5" onClick={this.onUpdate}><i className="fas fa-pencil-alt"></i> </button>
                     <button type="button" className="btn btn-dark ml-5" onClick={this.onDelete}><i className="fas fa-trash-alt"></i></button>
-                    <Link to={"/detail/"+students.id+"/"+students.stdID+"/"+students.name}><button type="button" className="btn btn-success ml-5" onClick={this.onDetail}><i class="fas fa-info-circle"></i></button></Link>
+                    {/* <Link to={"/detail/"+students.id+"/"+students.stdID+"/"+students.name}><button type="button" className="btn btn-success ml-5" onClick={this.onDetail}><i class="fas fa-info-circle"></i></button></Link> */}
                 </td>
             </tr>
 

@@ -34,7 +34,31 @@ export default class MainQLSV extends Component {
   }
 
   onGenerateData = () => {
-    let students = [];
+    let students = 
+      [
+        {
+            "id": 0.9862407148717394,
+            "stdID": "2017601742",
+            "name": "Tô Anh Quân",
+            "date": "1999-11-21",
+            "gender": true,
+            "major": "Công Nghệ Thông Tin",
+            "address": "Vĩnh Phúc",
+            "loading": false,
+            "image": {
+                "uid": "rc-upload-1618742038542-5"
+            },
+            "urlImage": "https://firebasestorage.googleapis.com/v0/b/qstore-99eb3.appspot.com/o/images%2F0c55a8f4150cea52b31d.jpg?alt=media&token=cac5bdbb-a643-4e0c-8831-79013ee9cb76",
+            "fileList": [
+                {
+                    "uid": "-1",
+                    "status": "done",
+                    "url": "https://placeholder.com/100x100"
+                }
+            ]
+        }
+    
+    ];
     /*Tạo 1 Mảng gồm các sinh vien khác nhau */
     /*setSate cho cái state khởi tạo bên trên */
     var a = localStorage.getItem("students");
@@ -232,20 +256,14 @@ export default class MainQLSV extends Component {
       });
     }
   
-  
+    
    
     return (
      
       
       <div>
         <div className="container-fluid">
-          <div className="row">
-            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 ">
-              {this.props.menu}
-            </div>
-
-            {/*end menu*/}
-          </div>
+         
           <div className="row">
             <div
               className="col-lg-12 col-md-12 col-sm-12 col-xs-12 col-12 qlsv"

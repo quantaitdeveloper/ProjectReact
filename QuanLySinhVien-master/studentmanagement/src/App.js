@@ -23,19 +23,20 @@ function App() {
                 path={route.path}
                 exact={route.exact}
                 render={() => {
-                  return localStorage.getItem("access")? <route.component menu={<Navbar></Navbar>} ></route.component>: <Login/>
+                  return localStorage.getItem("access")? <Home children={(value)=><route.component menu={value}></route.component>}></Home>  : <Login/>
                 }}
               >
               </Route>
             );
           })}
-        
+          
           
           <Route path="*">
             <NotFound></NotFound>
           </Route>
         </Switch>
       </BrowserRouter>
+      {/* <Home render={(value) => (<MainQLSV component={value}></MainQLSV>)}></Home> */}
     </div>
   );
 }
