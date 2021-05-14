@@ -1,0 +1,193 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,800;0,900;1,800;1,900&display=swap');
+body{
+    margin: 0;
+    padding :0;
+    background-color: #ACD3E4 !important;
+}
+.container{
+    background-color: #fff !important;
+}
+.infor{
+    color: #fff;
+    padding: 10px;
+    background-color: #013048;
+    font-family: 'Poppins', sans-serif; 
+}
+.avatar{
+    text-align: center;
+}
+.infor img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+}
+.div-avatar , .div-name {
+    padding-top: 20px;
+}
+.div-name{
+    color: #fff;
+}
+.name{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 25px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+.major{
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+.contact-infor, .education ,.language, .profile , .experience ,.skills , .interest{
+    padding-top: 30px;
+}
+.contact-infor p , .profile p{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+.contact li , .interest li{
+    list-style: none;
+    display: flex;
+    margin-bottom: 10px;
+}
+.contact li i , .interest li i{
+    font-size: 25px;
+    margin-right: 10px; 
+    color : #03A3EE;
+}
+.education{
+    padding-top: 30px;
+}
+.edu p{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+}
+.edu li, .language li, .profile l ,.skill li{
+    list-style: none;
+    margin-bottom: 25px;
+}
+.time{
+    font-size: 16px;
+     color : #03A3EE;
+}
+.unit{
+    font-size: 20px;
+}
+.description{
+    font-size: 16px;
+}
+.languages {
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+.skill-unit {
+    padding-bottom: 1.1em;
+    padding-right: 32px;
+}
+.skill-unit h4 {
+    margin: 0 0 4px 0;
+    font-size: 14px;
+    position: relative;
+    z-index: 100;
+    padding-left: 0px;
+    margin-bottom: 7px;
+}
+.skill-unit .bar {
+    position: relative;
+    width: 100%;
+    height: 8px;
+    border-radius: 16px;
+}
+.skill-unit .bar .progress {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #fff;
+    border-radius: 16px;
+    -webkit-transition: width 1s ease-out;
+    transition: width 1s ease-out;
+}
+.skill-unit .bar .progress span {
+    position: absolute;
+    top: -19px;
+    left: 100%;
+    margin-left: -2px;
+    font-size: 13px;
+    font-weight: bold;
+    text-align: center;
+    width: 42px;
+    line-height: 42px;
+    color: black;
+    padding: 0 6px;
+    background: rgba(255, 255, 255, 0.46);
+    border-radius: 50%;
+    visibility: visible;
+}
+@media screen and (min-width :1024px) {
+    .contact , .edu , .languages {
+        padding-inline-start: 20px !important;
+    }
+    .contact li {
+        font-size: 14px;
+    }
+}
+@media screen and (max-width :375px) {
+    .contact , .edu , .languages , .profile-content, .exp , .skills , .interest{
+        padding-inline-start: 20px !important;
+    }
+    .profile-content li {
+        padding :0 10px;
+    }
+    .contact li {
+        font-size: 14px;
+    }
+}
+/* rightside */
+.profile p , .exp p ,.skills p , .interest p{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+    color:#013048;
+}
+.profile-content li {
+    font-size: 17px;
+    list-style: none;
+    color: #5D5C73;
+    text-align: justify;
+}
+.exp li {
+    list-style: none;
+    margin-bottom: 25px;
+}
+
+.job{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #03A3EE;;
+}
+.interest li{
+    list-style: none;
+    display: flex;
+    margin-bottom: 10px;
+}
+.interest-li{
+    margin-bottom: 10px;
+}
