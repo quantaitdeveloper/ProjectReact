@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ProductItem from '../productitem/ProductItem';
+import {Link} from "react-router-dom";
 
 class ProductList extends Component {
     render() {
@@ -7,7 +8,7 @@ class ProductList extends Component {
             <div class="container">
             <div class="row">
               <div class="col-lg-12">
-              <button className="btn btn-primary" >Thêm Sản Phẩm</button>
+              <Link to="/add"><button className="btn btn-primary">Thêm Sản Phẩm</button></Link>
                 <table class="table">
                   <thead>
                     <tr>
@@ -20,9 +21,7 @@ class ProductList extends Component {
                     </tr>
                   </thead>
                   <tbody>
-                    <ProductItem></ProductItem>
-                    <ProductItem></ProductItem>
-                    <ProductItem></ProductItem>           
+                  {this.props.children}
                   </tbody>
                 </table>
               </div>

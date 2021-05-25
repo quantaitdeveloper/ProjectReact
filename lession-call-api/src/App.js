@@ -23,9 +23,8 @@ class App extends Component {
           <Menu></Menu>
           <Switch>
               {routes.map((route,index)=>{
-                return <Route key={index} path={route.map} component={route.component} exact={route.exact} ></Route>
-              })
-              }
+                  return <Route path={route.path} component={route.component} exact={route.exact}></Route>
+              })}
           </Switch>
         </div>
 

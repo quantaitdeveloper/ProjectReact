@@ -1,5 +1,6 @@
-import Home from "./components/Home";
-import ProductList from "./components/productlist/ProductList";
+import Home from "./components/Home/Home";
+import ProductsContainer from "./containers/ProductsContainer";
+import AddProduct from "./components/AddProduct/AddProduct";
 
 
 export const routes= [
@@ -10,8 +11,14 @@ export const routes= [
     },
     {
         path : "/products",
-        component : ProductList ,
+        component : ProductsContainer,
         exact : true
     },
+    {
+        path : "/add",
+        component : AddProduct,
+        exact : true
+    },
+
    
 ]
